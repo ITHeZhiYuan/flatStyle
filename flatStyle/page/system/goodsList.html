@@ -1,0 +1,36 @@
+<div class="table-header">
+	<span class="table-header-tools-left">
+		商品名称:
+		<input ng-model="search.goodsName" ng-change="searchChange()" type="text"/>
+		商品类型:
+		<select ng-model="search.goodsTypeId" ng-change="searchChange()">
+			<option value="">全部类型</option>
+			<option value="1">板材</option>
+			<option value="2">五金</option>
+			<option value="3">门</option>
+			<option value="4">地板</option>
+			<option value="5">方条</option>
+			<option value="6">吊顶</option>
+		</select>
+	</span>
+	<div class="table-header-tools-right">
+		<button class="btn btn-default" ng-click="resetSearch()">清除筛选条件</button>
+		<button class="btn btn-default" ng-click="add()">添加</button>
+		<button class="btn btn-default" ng-click="modify()">修改</button>
+		<button class="btn btn-default" ng-click="del()">删除</button>
+	</div>
+</div>
+<table>
+	<tr><td>商品编号</td><td>商品名称</td><td>商品种类</td><td>厂家</td><td>产地</td><td>单位</td></tr>
+	<tr ng-if="goodsList.length > 0" ng-repeat="goods in goodsList  | orderBy : 'id'" ng-click="chooseGoods(goods)" ng-class="{true:'choose'}[goodsChoose.id == goods.id]">
+		<td>{{goods.id}}</td>
+		<td>{{goods.goodsName}}</td>
+		<td>{{goods.goodsTypeId |  params:'goods'}}</td>
+		<td>{{goods.factory}}</td>
+		<td>{{goods.address}}</td>
+		<td>{{goods.unit}}</td>
+	</tr>
+	<tr ng-if="goodsList.length == 0"><td align="center" colspan="6">抱歉,未找到相关的数据!</td></tr>
+</table>
+<div ng-if="goodsList.length > 0" class="table-bottom">
+</div>
