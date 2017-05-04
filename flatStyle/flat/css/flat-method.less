@@ -1,0 +1,151 @@
+/*默认图片*/
+@defaultImage:'';
+/*默认颜色*/
+@defaultColor:rgba(0,0,0,0);
+/*默认像素*/
+@defaultPixel:0px;
+/*默认角度*/
+@defaultAngle:0deg;
+/*设置元素的宽和高*/
+.setWidthAndHeight(@width:@defaultPixel,@height:@defaultPixel){
+    .setWidth(@width);
+    .setHeight(@height);
+}
+.setWidth(@param:@defaultPixel){
+    width: @arguments;
+}
+.setHeight(@param:@defaultPixel){
+    height: @arguments;
+}
+/*设置背景颜色和背景图片*/
+.setBackGroundColorImage(@color:@defaultColor,@image:@defaultImage){
+    .setBackGroundColor(@color);
+    .setBackGroundImage(@image);
+}
+.setBackGroundColor(@param:@defaultColor){
+    background-color: @arguments;   
+}
+.setBackGroundImage(@param:@defaultImage){
+    background-image: @arguments;
+}
+/*设置元素外边距的值,默认为@defaultPixel*/
+.setMargin(@param:@defaultPixel){
+   .setMarginAll(@param,@param,@param,@param);
+}
+.setMarginAll(@left:@defaultPixel,@right:@defaultPixel,@top:@defaultPixel,@bottom:@defaultPixel){
+    .setMarginLeft(@left);
+    .setMarginRight(@right);
+    .setMarginTop(@top);
+    .setMarginBottom(@bottom);
+}
+.setMarginLeft(@param:@defaultPixel){
+    margin-left: @arguments;
+}
+.setMarginRight(@param:@defaultPixel){
+    margin-right: @arguments;
+}
+.setMarginTop(@param:@defaultPixel){
+    margin-top: @arguments;
+}
+.setMarginBottom(@param:@defaultPixel){
+    margin-bottom: @arguments;
+}
+/*设置元素内边距的值*/
+.setPadding(@param:@defaultPixel){
+    .setPaddingAll(@param,@param,@param,@param);
+}
+.setPaddingAll(@left:@defaultPixel,@right:@defaultPixel,@top:@defaultPixel,@bottom:@defaultPixel){
+    .setPaddingLeft(@left);
+    .setPaddingRight(@right);
+    .setPaddingTop(@top);
+    .setPaddingBottom(@bottom);
+}
+.setPaddingLeft(@param:@defaultPixel){
+    padding-left: @arguments;
+}
+.setPaddingRight(@param:@defaultPixel){
+    padding-right: @arguments;
+}
+.setPaddingTop(@param:@defaultPixel){
+    padding-top: @arguments;
+}
+.setPaddingBottom(@param:@defaultPixel){
+    padding-bottom: @arguments;
+}
+/*设置元素圆角样式*/
+.setBorderRadius(@radius:@defaultPixel){
+    .setBorderRadiusAll(@radius,@radius,@radius,@radius);
+}
+.setBorderRadiusAll(@topLeft:@defaultPixel,@topRight:@defaultPixel,@bottomLeft:@defaultPixel,@bottomRight:@defaultPixel){
+    .setBorderRadiusDetail(@topLeft,@topLeft,@topRight,@topRight,@bottomLeft,@bottomLeft,@bottomRight,@bottomRight);
+}
+.setBorderRadiusDetail(@topLeft:@defaultPixel,@leftTop:@defaultPixel,@topRight:@defaultPixel,@rightTop:@defaultPixel,@bottomLeft:@defaultPixel,@leftBottom:@defaultPixel,@bottomRight:@defaultPixel,@rightBottom:@defaultPixel){
+    .setBorderTopLeftRadius(@topLeft,@leftTop);
+    .setBorderTopRightRadius(@topRight,@rightTop);
+    .setBorderBottomRightRadius(@bottomLeft,@leftBottom);
+    .setBorderBottomLeftRadius(@bottomRight,@rightBottom)
+}
+.setBorderTopLeftRadius(@topLeft:@defaultPixel,@leftTop:@defaultPixel){
+    border-top-left-radius: @arguments;
+    -moz-border-top-left-radius: @arguments;
+    -webkit-border-top-left-radius: @arguments;
+}
+.setBorderTopRightRadius(@topRight:@defaultPixel,@rightTop:@defaultPixel){
+    border-top-right-radius: @arguments;
+    -moz-border-top-right-radius: @arguments;
+    -webkit-border-top-right-radius: @arguments;
+}
+.setBorderBottomRightRadius(@bottomLeft:@defaultPixel,@leftBottom:@defaultPixel){
+    border-bottom-right-radius: @arguments;
+    -moz-border-bottom-right-radius: @arguments;
+    -webkit-border-bottom-right-radius: @arguments;
+}
+.setBorderBottomLeftRadius(@bottomRight:@defaultPixel,@rightBottom:@defaultPixel){
+    border-bottom-left-radius: @arguments;
+    -moz-border-bottom-left-radius: @arguments;
+    -webkit-border-bottom-left-radius: @arguments;
+}
+
+/*所有特效的整合*/
+.transform(@translateX:@defaultPixel,@translateY:@defaultPixel,
+           @scaleX:1,@scaleY:1,
+           @rotateX:@defaultAngle,@rotateY:@defaultAngle,@rotateZ:@defaultAngle,
+           @skewX:@defaultAngle,@skewY:@defaultAngle){
+    transform:translate(@translateX,@translateY) scale(@scaleX,@scaleY) rotateX(@rotateX) rotateY(@rotateY) rotateZ(@rotateZ) skew(@skewX,@skewY);
+    -ms-transform:translate(@translateX,@translateY) scale(@scaleX,@scaleY) rotateX(@rotateX) rotateY(@rotateY) rotateZ(@rotateZ) skew(@skewX,@skewY);
+    -moz-transform:translate(@translateX,@translateY) scale(@scaleX,@scaleY) rotateX(@rotateX) rotateY(@rotateY) rotateZ(@rotateZ) skew(@skewX,@skewY);
+    -webkit-transform:translate(@translateX,@translateY) scale(@scaleX,@scaleY) rotateX(@rotateX) rotateY(@rotateY) rotateZ(@rotateZ) skew(@skewX,@skewY);
+    -o-transform:translate(@translateX,@translateY) scale(@scaleX,@scaleY) rotateX(@rotateX) rotateY(@rotateY) rotateZ(@rotateZ) skew(@skewX,@skewY);
+}
+/*XY平移*/
+.translate(@x:@defaultPixel,@y:@defaultPixel){
+    transform:translate(@x,@y);
+    -ms-transform:translate(@x,@y);
+    -moz-transform:translate(@x,@y);
+    -webkit-transform:translate(@x,@y);
+    -o-transform:translate(@x,@y);
+}
+/*XY缩放*/
+.scale(@x:1,@y:1){
+    transform:scale(@x,@y);
+    -ms-transform:scale(@x,@y);
+    -moz-transform:scale(@x,@y);
+    -webkit-transform:scale(@x,@y);
+    -o-transform:scale(@x,@y);
+}
+/*旋转角度*/
+.rotate(@x:@defaultAngle,@y:@defaultAngle,@z:@defaultAngle){
+    transform:rotateX(@x) rotateY(@y) rotateZ(@z);
+    -ms-transform:rotateX(@x) rotateY(@y) rotateZ(@z);
+    -moz-transform:rotateX(@x) rotateY(@y) rotateZ(@z);
+    -webkit-transform:rotateX(@x) rotateY(@y) rotateZ(@z);
+    -o-transform:rotateX(@x) rotateY(@y) rotateZ(@z);
+}
+/*倾斜角度*/
+.skew(@x:@defaultAngle,@y:@defaultAngle){
+    transform:skew(@x,@y);
+    -ms-transform:skew(@x,@y);
+    -moz-transform:skew(@x,@y);
+    -webkit-transform:skew(@x,@y);
+    -o-transform:skew(@x,@y);
+}
